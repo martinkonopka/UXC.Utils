@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UXC.Utils.MapToOgama", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UXC.Utils.CorrectGazeDataPositions", "src\UXC.Utils.CorrectGazeDataPositions\UXC.Utils.CorrectGazeDataPositions.csproj", "{3A5DEBCE-674F-4D2F-B3EF-06B17EAB3B99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UXC.Utils.InvalidateZeroPosGazeSamples", "src\UXC.Utils.InvalidateZeroPosGazeSamples\UXC.Utils.InvalidateZeroPosGazeSamples.csproj", "{34CF79DE-BE12-45B2-BE05-F0661BF1ABAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{3A5DEBCE-674F-4D2F-B3EF-06B17EAB3B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A5DEBCE-674F-4D2F-B3EF-06B17EAB3B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A5DEBCE-674F-4D2F-B3EF-06B17EAB3B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34CF79DE-BE12-45B2-BE05-F0661BF1ABAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34CF79DE-BE12-45B2-BE05-F0661BF1ABAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34CF79DE-BE12-45B2-BE05-F0661BF1ABAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34CF79DE-BE12-45B2-BE05-F0661BF1ABAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
