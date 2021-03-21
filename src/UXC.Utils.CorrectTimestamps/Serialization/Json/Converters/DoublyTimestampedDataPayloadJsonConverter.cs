@@ -33,24 +33,28 @@ namespace UXC.Utils.CorrectTimestamps.Serialization.Json.Converters
 
         protected override DoublyTimestampedDataPayload Convert(JToken token, JsonSerializer serializer)
         {
-            JObject obj = (JObject)token;
+            string raw = token.ToString();
 
-            string referenceTimestampFieldValue = obj[_referenceTimestampField].ToObject<string>();
+            string referenceTimestampFieldValue = token[_referenceTimestampField].ToObject<string>();
             DateTimeOffset referenceTimestamp = _referenceTimestampConverter.Convert(referenceTimestampFieldValue);
 
-            var timestamp = obj[_timestampField].ToObject<DateTimeOffset>(serializer);
+            var timestamp = token[_timestampField].ToObject<DateTimeOffset>(serializer);
 
-            return new DoublyTimestampedDataPayload(obj, timestamp, referenceTimestamp);
+            return new DoublyTimestampedDataPayload(raw, timestamp, referenceTimestamp);
         }
 
 
         protected override JToken ConvertBack(DoublyTimestampedDataPayload value, JsonSerializer serializer)
         {
-            JObject obj = value.Payload;
+            string raw = value.Payload;
 
-            obj[_timestampField] = JRaw.FromObject(value.Timestamp, serializer);
-
-            return obj;
+            using (var stringReader = new StringReader(raw))
+            using (var reader = new JsonTextReader(stringReader))
+            {
+                var obj = serializer.Deserialize<JObject>(reader);
+                obj[_timestampField] = JRaw.FromObject(value.Timestamp, serializer);
+                return obj;
+            }
         }
     }
 }

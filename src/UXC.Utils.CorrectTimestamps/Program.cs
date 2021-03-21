@@ -5,6 +5,7 @@ using System.Reactive.Linq;
 using System.Text;
 using UXI.Filters;
 using UXC.Utils.CorrectTimestamps.Configuration;
+using UXI.Filters.Configuration;
 
 namespace UXC.Utils.CorrectTimestamps
 {
@@ -14,12 +15,12 @@ namespace UXC.Utils.CorrectTimestamps
         {
             return new SingleFilterHost<CorrectTimestampsOptions>
             (
-                // filter:
                 new RelayFilter<DoublyTimestampedDataPayload, DoublyTimestampedDataPayload, CorrectTimestampsOptions>(CorrectTimestamps),
-
-                // configurations:
-                new DoublyTimestampedDataPayloadSerializationConfiguration(),
-                new TimestampsDiffStatisticsObserverConfiguration()
+                new FilterConfiguration[]
+                {
+                    new DoublyTimestampedDataPayloadSerializationConfiguration(),
+                    new TimestampsDiffStatisticsObserverConfiguration()
+                }
             ).Execute(args);
         }
 

@@ -9,14 +9,14 @@ namespace UXC.Utils.CorrectTimestamps
 {
     public class DoublyTimestampedDataPayload : ITimestampedData
     {
-        public DoublyTimestampedDataPayload(JObject payload, DateTimeOffset timestamp, DateTimeOffset referenceTimestamp)
+        public DoublyTimestampedDataPayload(string payload, DateTimeOffset timestamp, DateTimeOffset referenceTimestamp)
         {
             Payload = payload;
             Timestamp = timestamp;
             ReferenceTimestamp = referenceTimestamp;
         }
 
-        public JObject Payload { get; }
+        public string Payload { get; }
 
         public DateTimeOffset Timestamp { get; }
 
